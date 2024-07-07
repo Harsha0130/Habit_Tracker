@@ -19,14 +19,24 @@ graph_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs"
 header = {
     "X-USER-TOKEN": TOKEN
 }
+GRAPH_ID = "graph1"
 graph_config = {
-    "id": "graph1",
+    "id": GRAPH_ID,
     "name": "Running Graph",
     "unit": "Km",
     "type": "float",
     "color": "ajisai"
 }
 
-response = requests.post(url=graph_endpoint, json=graph_config, headers=header)
-print(response.text)
+# response = requests.post(url=graph_endpoint, json=graph_config, headers=header)
+# print(response.text)
 
+pixel_creation_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
+
+pixel_creation_params = {
+    "date": "20240707",
+    "quantity": "2.3",
+}
+
+response = requests.post(url=pixel_creation_endpoint, json=pixel_creation_params, headers=header)
+print(response.text)
