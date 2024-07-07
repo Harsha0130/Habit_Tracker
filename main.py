@@ -53,7 +53,12 @@ pixel_update_params = {
     "quantity": "8"
 }
 
-response = requests.put(url=update_pixel_endpoint, json=pixel_update_params, headers=header)
+# response = requests.put(url=update_pixel_endpoint, json=pixel_update_params, headers=header)
+# print(response.text)
+
+# *****************************************DELETE*****************************************
+
+delete_pixel_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{pixel_creation_params["date"]}"
+
+response = requests.delete(url=delete_pixel_endpoint, headers=header)
 print(response.text)
-
-
